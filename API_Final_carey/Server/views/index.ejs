@@ -1,0 +1,26 @@
+<% include header %>
+<% if(questionData.length){ %>
+	<% questionData.forEach(function(question){ %>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="text-muted pull-right">
+				<%= question.questionText %>
+			</div>
+			<%= question.answers.length %>
+		</div>
+		<% question.answers.forEach(function(answer){ %>
+		<div class="panel-body">
+			<%= answer.answerText %>
+			<% if (answer.isCorrect == true) {%>
+			<%= "Correct Answer" %>
+			<% } %>	
+		
+		</div>
+	<% }) %>	
+		
+	</div>
+	<% }) %>
+	<% } else { %>
+	No entries! <a href="/new-entry">Add a Question?</a>
+	<% } %>
+<% include footer %>
